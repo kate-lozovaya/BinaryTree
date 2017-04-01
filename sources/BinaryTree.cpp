@@ -17,6 +17,18 @@ Tree::Tree(const Tree &node)
 	root->left = node.root->left;
 	root->right = node.root->right;
 }
+int Tree::x_()const
+{
+	return root->x;
+}
+Node* Tree::left_()const
+{
+	return root->left;
+}
+Node* Tree::right_()const
+{
+	return root->right;
+}
 void Tree::add(Node* newEl)
 {
 	Node* El = NULL;

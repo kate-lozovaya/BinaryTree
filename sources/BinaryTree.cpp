@@ -91,7 +91,7 @@ template<class Node> void Tree<Node>::Out(Node* curEl)const
 	curEl = root;
 	if (curEl != NULL)
 	{
-		cout << curEl->x;
+		cout << curEl->x << endl;
 		Out(curEl->left);
 		Out(curEl->right);
 	}

@@ -18,6 +18,9 @@ public:
 	Tree();
 	Tree(Node* node);
 	Tree(const Tree &node);
+	int x_()const;
+	Node* left_()const;
+	Node* right_()const;
 	void add(Node* newEl);
 	Tree search(int x);
 	void fIn(string filename);

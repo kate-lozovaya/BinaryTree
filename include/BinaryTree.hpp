@@ -3,13 +3,15 @@
 #include <fstream>
 using namespace std;
 
+template<typename T>
 struct Node
 {
-	int x;
+	T x;
 	Node* left;
 	Node* right;
 };
 
+template<class Node>
 class Tree
 {
 private:

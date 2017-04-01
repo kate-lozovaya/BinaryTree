@@ -1,35 +1,35 @@
 #include "BinaryTree.h"
 
-Tree::Tree()
+template<class Node> Tree<Node>::Tree()
 {
 	root->x = 0;
 	root->left = root->right = NULL;
 }
-Tree::Tree(Node* node)
+template<class Node> Tree<Node>::Tree(Node* node)
 {
 	root->x = node->x;
 	root->left = node->left;
 	root->right = node->right;
 }
-Tree::Tree(const Tree &node)
+template<class Node> Tree<Node>::Tree(const Tree &node)
 {
 	root->x = node.root->x;
 	root->left = node.root->left;
 	root->right = node.root->right;
 }
-int Tree::x_()const
+template<class Node> int Tree<Node>::x_()const
 {
 	return root->x;
 }
-Node* Tree::left_()const
+template<class Node> Node* Tree<Node>::left_()const
 {
 	return root->left;
 }
-Node* Tree::right_()const
+template<class Node> Node* Tree<Node>::right_()const
 {
 	return root->right;
 }
-void Tree::add(Node* newEl)
+template<class Node> void Tree<Node>::add(Node* newEl)
 {
 	Node* El = NULL;
 	Node* curEl = root;
@@ -46,7 +46,7 @@ void Tree::add(Node* newEl)
 	else
 		El->left = newEl;
 }
-Tree Tree::search(int x)
+template<class Node> Tree Tree<Node>::search(int x)
 {
 	Node* curEl = root;
 	while (curEl != NULL)
@@ -63,7 +63,7 @@ Tree Tree::search(int x)
 	}
 	return nullptr;
 }
-void Tree::fIn(string filename)
+template<class Node> void Tree<Node>::fIn(string filename)
 {
 	ifstream fin;
 	fin.open(filename);
@@ -79,14 +79,14 @@ void Tree::fIn(string filename)
 	}
 	fin.close();
 }
-void Tree::fOut(string filename)const
+template<class Node> void Tree<Node>::fOut(string filename)const
 {
 	ofstream fout;
 	fout.open(filename);
 	Out(root);
 	fout.close();
 }
-void Tree::Out(Node* curEl)const
+template<class Node> void Tree<Node>::Out(Node* curEl)const
 {
 	curEl = root;
 	if (curEl != NULL)

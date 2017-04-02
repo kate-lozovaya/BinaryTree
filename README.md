@@ -4,8 +4,6 @@
 
 BinaryTree methods:
 - [ ] default constructor
-- [ ] constructor with params
-- [ ] copy constructor
 - [ ] add
 - [ ] search
 - [ ] fIn

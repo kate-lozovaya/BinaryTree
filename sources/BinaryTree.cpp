@@ -5,18 +5,6 @@ template<class Node> Tree<Node>::Tree()
 	root->x = 0;
 	root->left = root->right = NULL;
 }
-template<class Node> Tree<Node>::Tree(Node* node)
-{
-	root->x = node->x;
-	root->left = node->left;
-	root->right = node->right;
-}
-template<class Node> Tree<Node>::Tree(const Tree &node)
-{
-	root->x = node.root->x;
-	root->left = node.root->left;
-	root->right = node.root->right;
-}
 template<class Node> int Tree<Node>::x_()const
 {
 	return root->x;

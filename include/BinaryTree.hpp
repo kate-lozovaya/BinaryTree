@@ -18,8 +18,6 @@ private:
 	Node* root;
 public:
 	Tree();
-	Tree(Node* node);
-	Tree(const Tree &node);
 	int x_()const;
 	Node* left_()const;
 	Node* right_()const;

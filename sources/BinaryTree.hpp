@@ -143,7 +143,7 @@ class Tree
 	} 
 
 void Out(ostream & stream)const 
-	{ 
+	{
 	Node <T>* curEl = root;
 		if (curEl != NULL) 
 		{ 

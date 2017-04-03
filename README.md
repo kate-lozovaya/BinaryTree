@@ -7,5 +7,3 @@ BinaryTree methods:
 - [ ] add
 - [ ] search
 - [ ] fIn
-- [ ] fOut
-- [ ] Out

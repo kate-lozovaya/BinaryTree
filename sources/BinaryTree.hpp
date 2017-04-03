@@ -21,7 +21,6 @@ public:
 	{
 		root = new Node<T>;
 		root->x = 0;
-		root->left = root->right = NULL;
 	}
 
 	~Tree()

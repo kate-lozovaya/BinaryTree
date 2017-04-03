@@ -144,7 +144,7 @@ class Tree
 
 void Out(ostream & stream)const 
 	{
-	Node <T>* curEl = root;
+	        Node <T>* curEl = root;
 		if (curEl != NULL) 
 		{ 
 			stream << curEl->x << endl; 

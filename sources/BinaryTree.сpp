@@ -19,8 +19,8 @@ private:
 public:
 	Tree()
 	{
-		root = new Node<T>;
 		root->x = 0;
+		root->left = root->right = nullptr;
 	}
 
 	~Tree()

@@ -10,7 +10,7 @@ addons:
 cache:
     apt: true
 
-matrix:
+BinaryTree:
     include:
 #        - os: osx
 #          compiler: clang

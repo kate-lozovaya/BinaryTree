@@ -141,10 +141,10 @@ class Tree
 			fout.close(); 
 		} 
 	} 
- 
-	void Out(ostream & stream)const 
+
+void Out(ostream & stream)const 
 	{ 
-		curEl = root;
+	Node <T>* curEl = root;
 		if (curEl != NULL) 
 		{ 
 			stream << curEl->x << endl; 

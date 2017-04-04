@@ -42,9 +42,9 @@ SCENARIO("out_to_file")
 	Tree<int> tree1, tree2;
 	int size1, size2;
 	tree1.fIn("Tree.txt");
-	size1 = tree1.size(tree1.root_();
+	size1 = tree1.size(tree1.root_());
 	tree1.out_to_file("TreeOut.txt");
 	tree2.fIn("TreeOut.txt");		   
-	size2 = tree2.size(tree2.root_();
+	size2 = tree2.size(tree2.root_());
 	REQUIRE(size1 == size2);
 }

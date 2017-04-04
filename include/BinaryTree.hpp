@@ -1,7 +1,3 @@
-// бд.cpp: определяет точку входа для консольного приложения.
-//
-
-#include "stdafx.h"
 #include <iostream> 
 #include <string> 
 #include <fstream> 
@@ -145,22 +141,18 @@ public:
 			if (size_ == 0)
 				return;
 			fout << size_ << "\t";
-			for (unsigned int i = 0; i < size_; ++i)
-			{
-				fOut(root, fout);
-			}
+			fOut(root, fout);
 			fout.close();
 		}
 	}
 
 	void fOut(Node<T> * node, ostream&stream)const
 	{
-		Node<T> * curEl = node;
 		if (curEl != nullptr)
 		{
-			fOut(curEl->left, stream);
-			stream << curEl->x << " ";
-			fOut(curEl->right, stream);
+			fOut(node->left, stream);
+			stream << node->x << " ";
+			fOut(node->right, stream);
 		}
 	}
 

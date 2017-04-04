@@ -1,5 +1,4 @@
 #include "BinaryTree.hpp"
-#include <fstream>
 #include <catch.hpp>
 
 SCENARIO("default constructor") 

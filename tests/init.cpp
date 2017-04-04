@@ -14,7 +14,7 @@ SCENARIO("insert")
 	tree.fIn("Tree.txt");
 	std::ifstream("newEl.txt") >> newEl;
 	tree.insert(newEl);
-	REQUIRE(tree->right->x_() == 7);
+	REQUIRE(tree->right_() == 7);
 }
 
 SCENARIO("search")
@@ -24,8 +24,8 @@ SCENARIO("search")
 	tree.fIn("Tree+newEl.txt");
 	node = tree.search(5);
 	REQUIRE(tree.x_() == 5);
-	REQUIRE(tree.left->x_() == 3);
-	REQUIRE(tree.right->x_() == 7);
+	REQUIRE(tree.left_() == 3);
+	REQUIRE(tree.right_() == 7);
 }
 				
 SCENARIO("fIn")

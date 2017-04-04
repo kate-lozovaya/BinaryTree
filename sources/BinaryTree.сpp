@@ -53,14 +53,14 @@ public:
 
 	void add(const T newEl)
 	{
-		if (root == NULL)
+		if (root == nullptr)
 			root->x = newEl;
 		else
 		{
 			Node<T> * El = new Node<T>;
 			Node<T> * curEl = new Node<T>;
 			curEl = root;
-			while (curEl != NULL)
+			while (curEl != nullptr)
 			{
 				El = curEl;
 				if (newEl > curEl->x)
@@ -74,13 +74,13 @@ public:
 			{
 				El->right = new Node<T>;
 				El->right->x = newEl;
-				El->right->left = El->right->right = NULL;
+				El->right->left = El->right->right = nullptr;
 			}
 			else
 			{
 				El->left = new Node<T>;
 				El->left->x = newEl;
-				El->left->left = El->left->right = NULL;
+				El->left->left = El->left->right = nullptr;
 			}
 		}
 	}
@@ -88,7 +88,7 @@ public:
 	Node<T> * search(const T x)
 	{
 		Node<T> * curEl = root;
-		while (curEl != NULL)
+		while (curEl != nullptr)
 		{
 			if (curEl->x == x)
 				return curEl;
@@ -113,7 +113,7 @@ public:
 			deleteNode(root);
 			root = new Node<T>;
 			root->x = 0;
-			root->left = root->right = NULL;
+			root->left = root->right = nullptr;
 			if (fin.eof()) return;
 			else
 			{
@@ -145,7 +145,7 @@ public:
 	void Out(Node<T> * root, ostream&stream)const
 	{
 		Node<T> * curEl = root;
-		if (curEl != NULL)
+		if (curEl != nullptr)
 		{
 			cout << curEl->x << endl;
 			Out(curEl->left, cout);

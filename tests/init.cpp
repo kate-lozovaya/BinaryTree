@@ -28,9 +28,19 @@ SCENARIO("search")
 	REQUIRE(a == false);
 }
 				
-SCENARIO("fIn")
+SCENARIO("fIn", "size")
 {
 	Tree<int> tree;
+	int size = 0;
 	tree.fIn("Tree.txt");
-	REQUIRE(tree.x_() == 5);
+	size = tree.size(tree.root_());
+	REQUIRE(size == 4);
+}
+
+SCENARIO("out_to_file")
+{
+	Tree<int> tree1, tree2;
+	tree1.out_to_file("TreeOut.txt");
+	tree2.fIn("TreeOut.txt");
+	REQUIRE(tree1.size(tree.root_()) == tree2.size(tree.root_()));
 }

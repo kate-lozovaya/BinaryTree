@@ -15,3 +15,11 @@ SCENARIO("insert")
 	REQUIRE(tree.left_() == nullptr);
 	REQUIRE(tree.right_() == nullptr);
 }
+
+SCENARIO("search")
+{
+	Tree<int> tree;
+	tree.insert(7);
+	a = tree.check_search(7);
+	REQUIRE(a == true);
+}

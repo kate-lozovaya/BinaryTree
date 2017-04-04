@@ -9,6 +9,7 @@ struct Node
 	T x;
 	Node<T> * left;
 	Node<T> * right;
+	Node(T const& value) : x{value}, left{nullptr}, right{nullptr} {}
 };
 
 template<typename T>
@@ -19,8 +20,7 @@ private:
 public:
 	Tree()
 	{
-		root->x = 0;
-		root->left = root->right = nullptr;
+		root = nullptr;
 	}
 
 	~Tree()
@@ -54,11 +54,11 @@ public:
 	void add(const T newEl)
 	{
 		if (root == nullptr)
-			root->x = newEl;
+			root = new Node(newEl);
 		else
 		{
 			Node<T> * El = new Node<T>;
-			Node<T> * curEl = new Node<T>;
+			Node<T> *& curEl = new Node<T>;
 			curEl = root;
 			while (curEl != nullptr)
 			{
@@ -85,13 +85,13 @@ public:
 		}
 	}
 
-	Node<T> * search(const T x)
+	Node<T> * search(const T& x)
 	{
 		Node<T> * curEl = root;
 		while (curEl != nullptr)
 		{
 			if (curEl->x == x)
-				return curEl;
+				break;
 			else
 			{
 				if (x > curEl->x)
@@ -99,7 +99,7 @@ public:
 				else curEl = curEl->left;
 			}
 		}
-		return nullptr;
+		return curEl;
 	}
 
 	void fIn(string filename)

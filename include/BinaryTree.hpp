@@ -41,14 +41,14 @@ public:
 		return root->x;
 	}
 
-	Node<T> * left_() const
+	T left_() const
 	{
-		return root->left;
+		return root->left->x;
 	}
 
-	Node<T> * right_() const
+	T right_() const
 	{
-		return root->right;
+		return root->right->;
 	}
 
 	Node<T> * root_() const

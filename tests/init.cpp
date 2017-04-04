@@ -40,13 +40,12 @@ SCENARIO("out_to_file", "fIn")
 	int size1, size2;
 	tree1.insert(3);
 	tree1.insert(4);
-	tree1.insert(2);
 	tree1.out_to_file("TreeOut.txt");
 	size1 = tree1.size(tree1.root_());
 	tree2.fIn("TreeOut.txt");
 	size2 = tree2.size(tree2.root_());
-	REQUIRE(size1 == 3);
-	REQUIRE(size2 == 3);
+	REQUIRE(size1 == 2);
+	REQUIRE(size2 == 2);
 	REQUIRE(tree2.x_() == 3);
 	REQUIRE(tree2.left_() != nullptr);
 	REQUIRE(tree2.right_() != nullptr);

@@ -12,6 +12,6 @@ SCENARIO("insert")
 	Tree<int> tree;
 	tree.insert(7);
 	REQUIRE(tree.x_() == 7);
-	REQUIRE(tree.left_() == tree.right_() == nullptr);
+	REQUIRE(tree.left_() == nullptr);
+	REQUIRE(tree.right_() == nullptr);
 }
-

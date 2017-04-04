@@ -24,3 +24,12 @@ SCENARIO("search")
 	a = tree.check_search(7);
 	REQUIRE(a == true);
 }
+
+SCENARIO("size")
+{
+	Tree<int> tree;
+	int size = 0;
+	tree.insert(7);
+	size = tree.size(tree.root_());
+	REQUIRE(size == 1);
+}

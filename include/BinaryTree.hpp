@@ -48,7 +48,7 @@ public:
 
 	T right_() const
 	{
-		return root->right->;
+		return root->right->x;
 	}
 
 	Node<T> * root_() const

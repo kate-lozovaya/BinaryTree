@@ -12,9 +12,9 @@ SCENARIO("insert")
 	Tree<int> tree;
 	int size1, size2;
 	tree.fIn("Tree.txt");
-	size1 = tree.size(root_());
+	size1 = tree.size(tree.root_());
 	tree.insert(7);
-	size2 = tree.size(root_());
+	size2 = tree.size(tree.root_());
 	REQUIRE((size1 + 1) == size2);
 }
 
@@ -24,7 +24,7 @@ SCENARIO("search")
 	Node<int> * node;
 	bool a;
 	tree.fIn("Tree+newEl.txt");
-	a = check_search(5)
+	a = tree.check_search(5)
 	REQUIRE(a == true);
 }
 				

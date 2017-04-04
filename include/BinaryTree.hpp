@@ -95,6 +95,15 @@ public:
 		}
 		return curEl;
 	}
+	
+	bool check_search(const T& x)
+	{
+		Node<T> * node;
+		node = search(x);
+		if (node != nullptr)
+			return true;
+		else return false;
+	}
 
 	void fIn(const string filename)
 	{

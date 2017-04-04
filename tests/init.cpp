@@ -1,19 +1,20 @@
-#include <BinaryTree.сpp>
+#include "BinaryTree.сpp"
+#include <fstream>
 #include <catch.hpp>
 
 SCENARIO("default constructor") 
 {
 	Tree node;
-	REQUIRE(node.x_() == 0);
+	REQUIRE(node.root_() == nullptr);
 }
 
-SCENARIO("add")
+SCENARIO("insert")
 {
 	Tree tree;
 	int newEl;
 	tree.fIn("Tree.txt");
 	std::ifstream("newEl.txt") >> newEl;
-	tree.add(newEl);
+	tree.insert(newEl);
 	REQUIRE(right_() == 7);
 }
 
@@ -32,5 +33,5 @@ SCENARIO("fIn")
 {
 	Tree tree;
 	tree.fIn("Tree.txt");
-	REQUIRE(x_() == 5);
+	REQUIRE(tree.x_() == 5);
 }

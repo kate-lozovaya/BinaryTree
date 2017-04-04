@@ -19,6 +19,7 @@ SCENARIO("insert")
 SCENARIO("search")
 {
 	Tree<int> tree;
+	bool a;
 	tree.insert(7);
 	a = tree.check_search(7);
 	REQUIRE(a == true);

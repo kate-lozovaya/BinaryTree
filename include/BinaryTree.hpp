@@ -148,7 +148,7 @@ public:
 
 	void fOut(Node<T> * node, ostream&stream)const
 	{
-		if (curEl != nullptr)
+		if (node != nullptr)
 		{
 			fOut(node->left, stream);
 			stream << node->x << " ";

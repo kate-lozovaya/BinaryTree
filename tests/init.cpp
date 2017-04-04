@@ -4,34 +4,34 @@
 
 SCENARIO("default constructor") 
 {
-	Tree node;
+	Tree<int> node;
 	REQUIRE(node.root_() == nullptr);
 }
 
 SCENARIO("insert")
 {
-	Tree tree;
+	Tree<int> tree;
 	int newEl;
 	tree.fIn("Tree.txt");
 	std::ifstream("newEl.txt") >> newEl;
 	tree.insert(newEl);
-	REQUIRE(right_() == 7);
+	REQUIRE(tree.right_() == 7);
 }
 
 SCENARIO("search")
 {
-	Tree tree;
-	Node* node;
+	Tree<int> tree;
+	Node<int> * node;
 	tree.fIn("Tree+newEl.txt");
 	node = tree.search(5);
-	REQUIRE(x_() == 5);
-	REQUIRE(left_() == 3);
-	REQUIRE(right_() == 7);
+	REQUIRE(tree.x_() == 5);
+	REQUIRE(tree.left_() == 3);
+	REQUIRE(tree.right_() == 7);
 }
 				
 SCENARIO("fIn")
 {
-	Tree tree;
+	Tree<int> tree;
 	tree.fIn("Tree.txt");
 	REQUIRE(tree.x_() == 5);
 }

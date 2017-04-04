@@ -24,7 +24,7 @@ SCENARIO("search")
 	Node<int> * node;
 	bool a;
 	tree.fIn("Tree+newEl.txt");
-	a = tree.check_search(5)
+	a = tree.check_search(5);
 	REQUIRE(a == true);
 }
 				

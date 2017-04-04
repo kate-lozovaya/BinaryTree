@@ -10,20 +10,22 @@ SCENARIO("default constructor")
 SCENARIO("insert")
 {
 	Tree<int> tree;
+	int size1, size2;
 	tree.fIn("Tree.txt");
+	size1 = tree.size(root_());
 	tree.insert(7);
-	REQUIRE(tree.right_() == 7);
+	size2 = tree.size(root_());
+	REQUIRE((size1 + 1) == size2);
 }
 
 SCENARIO("search")
 {
 	Tree<int> tree;
 	Node<int> * node;
+	bool a;
 	tree.fIn("Tree+newEl.txt");
-	node = tree.search(5);
-	REQUIRE(tree.x_() == 5);
-	REQUIRE(tree.left_() == 3);
-	REQUIRE(tree.right_() == 7);
+	a = check_search(5)
+	REQUIRE(a == true);
 }
 				
 SCENARIO("fIn")

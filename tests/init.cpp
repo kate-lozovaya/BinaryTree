@@ -10,10 +10,8 @@ SCENARIO("default constructor")
 SCENARIO("insert")
 {
 	Tree<int> tree;
-	int newEl;
 	tree.fIn("Tree.txt");
-	std::ifstream("newEl.txt") >> newEl;
-	tree.insert(newEl);
+	tree.insert(7);
 	REQUIRE(tree.right_() == 7);
 }
 

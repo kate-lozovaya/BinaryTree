@@ -51,9 +51,9 @@ public:
 		return root->right;
 	}
 
-	Node<T> * root_() const
+	Node<T> * node_() const
 	{
-		return root;
+		return node;
 	}
 
 	void insert(const T& value)

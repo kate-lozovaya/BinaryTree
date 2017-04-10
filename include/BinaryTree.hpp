@@ -63,20 +63,15 @@ public:
 
 	void insert(Node<T>* & node, const T& value)
 	{
-		if (node) {
-			if (value < node->x) {
+		if (node) 
+		{
+			if (value < node->x) 
 				insert(node->left, value);
-			}
-			else if (value > node->x) {
+			else if (value > node->x) 
 				insert(node->right, value);
-			}
-			else {
-				return;
-			}
+			else return;
 		}
-		else {
-			node = new Node<T>(value);
-		}
+		else node = new Node<T>(value);
 	}
 
 	Node<T> * search(const T& x)const
@@ -181,5 +176,66 @@ public:
 			stream << curEl->x << endl;
 			Out(curEl->left, stream, level + 1);
 		}
+	}
+	
+	Node<T> * prev_(const T& x)
+	{
+		return prev(root, x);
+	}
+	
+	Node<T> * prev_(Node<T> * & node, const T& x)
+	{
+		if (check_search(x))
+		{
+			Node<T> * prev = nullptr;
+			Node<T> * cur = nullptr;
+			while (node->x != x)
+			{
+				if (x < node->x)
+				{
+					prev = node;
+					cur = node->left;
+					prev(cur, x);
+				}
+				else if (x > node->x)
+				{
+					prev = node;
+					cur = node->right;
+					prev(cur, x);
+				}
+			}
+			return prev;
+		}
+		else return;
+	}
+	
+	void deliteX(const T& x)
+	{
+		Node<T> * curEl = search(x);
+		Node<T> * prev = nullptr;
+		if (curEl != nullptr)
+		{
+			if (curEl->left == nullptr&&curEl->right == nullptr)
+			{
+				prev = prev_(x);
+				if (x < prev->x)
+					prev->left = nullptr;
+				if (x > prev->x)
+					prev->right = nullptr;
+			}
+			else
+			{
+				if (curEl->right != nullptr)
+				{
+					Node<T> * left_ = curEl->left;
+					Node<T> * right_ = curEl->right;
+					while (curEl->right->left)
+					{
+
+					}
+				}
+			}
+		}
+		else return;
 	}
 };

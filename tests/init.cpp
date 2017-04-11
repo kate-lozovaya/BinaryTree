@@ -43,7 +43,7 @@ SCENARIO("deleteX")
 	tree.insert(2);
 	tree.insert(0);
 	size1 = tree.size(tree.root_());
-	tree.deleteX(2);
+	tree.deleteX(0);
 	size2 = tree.size(tree.root_());
 	REQUIRE(size1 == 1 + size2);
 }

@@ -209,7 +209,7 @@ public:
 		else return;
 	}
 	
-	void deliteX(const T& x)
+	void deleteX(const T& x)
 	{
 		Node<T> * curEl = search(x);
 		Node<T> * prev = nullptr;

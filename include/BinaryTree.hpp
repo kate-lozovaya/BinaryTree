@@ -227,23 +227,26 @@ public:
 			{
 				if (curEl->right != nullptr)
 				{
-					* left = curEl->left;
-					* right = curEl->right;
+					Node<T> * left_ = curEl->left;
+					Node<T> * right_ = curEl->right;
 					Node<T> * leftEl = curEl->right;
-					while (leftEl->left||leftEl->right)
-					{
-						if (leftEl->left)
-							leftEl = leftEl->left;
-						else leftEl = leftEl->right;
-					}
+					while (leftEl->left)
+						leftEl = leftEl->left;
 					prev = prev_(leftEl->x);
 					if (x < prev->x)
 						prev->left = nullptr;
 					if (x > prev->x)
 						prev->right = nullptr;
-					leftEl->left = left;
-					leftEl->right = right;
+					leftEl->left = left_;
+					leftEl->right = right_;
 					curEl = leftEl;
+				}
+				if (curEl->left != nullptr&&curEl->right == nullptr)
+				{
+					prev = prev_(curEl->x);
+					if (curEl->x < prev->x)
+						prev->left = curEl->left;
+					else prev->right = curEl->left;
 				}
 			}
 		}

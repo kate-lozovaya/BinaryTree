@@ -34,6 +34,20 @@ SCENARIO("size")
 	REQUIRE(size == 1);
 }
 
+SCENARIO("deleteX")
+{
+	Tree<int> tree;
+	int size1, size2;
+	tree.insert(3);
+	tree.insert(4);
+	tree.insert(2);
+	tree.insert(0);
+	size1 = tree.size(tree.root_());
+	tree.deleteX(2);
+	size2 = tree.size(tree.root_());
+	REQUIRE(size1 == 1 + size2);
+}
+
 SCENARIO("out_to_file", "fIn")
 {
 	Tree<int> tree1, tree2;

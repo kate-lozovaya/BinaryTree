@@ -9,5 +9,5 @@ BinaryTree methods:
 - [x] fIn
 - [x] size
 - [x] out_to_file
-- [ ] prev
+- [x] prev
 - [ ] deliteX

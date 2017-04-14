@@ -178,7 +178,7 @@ public:
 		}
 	}
 	
-	Node<T> * prev_(const T& x)
+	Node<T> * prev_(const T& x)const
 	{
 		return prev_(root, x);
 	}
@@ -186,22 +186,21 @@ public:
 	Node<T> * prev_(Node<T> * & node, const T& x)
 	{
 		Node<T> * prev = nullptr;
-		Node<T> * cur = nullptr;
 		if (check_search(x))
 		{
-			while (node->x != x)
+			if (node->x != x)
 			{
 				if (x < node->x)
 				{
 					prev = node;
-					cur = node->left;
-					prev_(cur, x);
+					node = node->left;
+					prev_(node, x);
 				}
 				else if (x > node->x)
 				{
 					prev = node;
-					cur = node->right;
-					prev_(cur, x);
+					node = node->right;
+					prev_(node, x);
 				}
 			}
 		}

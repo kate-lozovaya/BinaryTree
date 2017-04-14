@@ -180,7 +180,7 @@ public:
 	
 	Node<T> * prev_(const T& x)const
 	{
-		return prev_(root, x)const;
+		return prev_(root, x);
 	}
 	
 	Node<T> * prev_(Node<T> * & node, const T& x)const

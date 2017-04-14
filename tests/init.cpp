@@ -34,6 +34,17 @@ SCENARIO("size")
 	REQUIRE(size == 1);
 }
 
+SCENARIO("prev_")
+{
+	Tree<int> tree;
+	Node<int> * node;
+	tree.insert(3);
+	tree.insert(4);
+	tree.insert(2);
+	node = tree.prev_(4);
+	REQUIRE(node->x == x_());
+}
+
 SCENARIO("deleteX")
 {
 	Tree<int> tree;

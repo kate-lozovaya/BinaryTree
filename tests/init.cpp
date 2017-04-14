@@ -72,6 +72,4 @@ SCENARIO("out_to_file", "fIn")
 	REQUIRE(size1 == 2);
 	REQUIRE(size2 == 2);
 	REQUIRE(tree2.x_() == 3);
-	REQUIRE(tree2.left_() == nullptr);
-	REQUIRE(tree2.right_() != nullptr);
 }

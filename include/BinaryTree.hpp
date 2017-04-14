@@ -178,12 +178,12 @@ public:
 		}
 	}
 	
-	Node<T> * prev_(const T& x)const
+	Node<T> * prev_(const T& x)
 	{
 		return prev_(root, x);
 	}
 	
-	Node<T> * prev_(Node<T> * & node, const T& x)const
+	Node<T> * prev_(Node<T> * & node, const T& x)
 	{
 		Node<T> * prev = nullptr;
 		if (check_search(x))

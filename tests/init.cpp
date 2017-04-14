@@ -42,7 +42,7 @@ SCENARIO("prev_")
 	tree.insert(4);
 	tree.insert(2);
 	node = tree.prev_(4);
-	REQUIRE(node->x == x_());
+	REQUIRE(node->x == tree.x_());
 }
 
 SCENARIO("deleteX")

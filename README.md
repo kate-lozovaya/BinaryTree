@@ -10,4 +10,4 @@ BinaryTree methods:
 - [x] size
 - [x] out_to_file
 - [x] prev
-- [ ] deliteX
+- [ ] deleteX

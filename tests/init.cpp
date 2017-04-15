@@ -66,7 +66,7 @@ SCENARIO("deleteX")
 	REQUIRE(size1 == 7);
 	REQUIRE(size2 == 6);
 	REQUIRE(size3 == 5);
-	REQUIRE(size3 == 4);
+	REQUIRE(size4 == 4);
 }
 
 SCENARIO("out_to_file", "fIn")

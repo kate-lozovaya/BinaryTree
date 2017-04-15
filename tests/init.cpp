@@ -59,3 +59,27 @@ SCENARIO("out_to_file", "fIn")
 	REQUIRE(size2 == 2);
 	REQUIRE(tree2.x_() == 3);
 }
+
+SCENARIO("deleteX")
+{
+	Tree<int> tree;
+	int size1, size2, size3, size4;
+	tree.insert(5);
+	tree.insert(3);
+	tree.insert(2);
+	tree.insert(4);
+	tree.insert(7);
+	tree.insert(6);
+	tree.insert(8);
+	size1 = tree.size(tree.root_());
+	tree.deleteX(8);
+	size2 = tree.size(tree.root_());
+	tree.deleteX(7);
+	size3 = tree.size(tree.root_());
+	tree.deleteX(3);
+	size4 = tree.size(tree.root_());
+	REQUIRE(size1 == 7);
+	REQUIRE(size2 == 6);
+	REQUIRE(size3 == 5);
+	REQUIRE(size4 == 4);
+}

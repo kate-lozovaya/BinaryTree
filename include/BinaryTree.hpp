@@ -208,42 +208,30 @@ public:
 	void deleteX(const T& x)
 	{
 		Node<T> * curEl = search(x);
-		Node<T> * prev = nullptr;
+		Node<T> * prev = prev_(x);
 		if (curEl != nullptr)
 		{
-			if (curEl->left == nullptr&&curEl->right == nullptr)
+			if (curEl->left == nullptr && curEl->right == nullptr)
 			{
-				prev = prev_(x);
-				if (x < prev->x)
+				if (prev->left == curEl)
 					prev->left = nullptr;
-				if (x > prev->x)
+				if (prev->right == curEl)
 					prev->right = nullptr;
 			}
-			else
+			else if (curEl->left != nullptr&&curEl->right == nullptr)
 			{
-				if (curEl->right != nullptr)
-				{
-					Node<T> * left_ = curEl->left;
-					Node<T> * right_ = curEl->right;
-					Node<T> * leftEl = curEl->right;
-					while (leftEl->left)
-						leftEl = leftEl->left;
-					prev = prev_(leftEl->x);
-					if (x < prev->x)
-						prev->left = nullptr;
-					if (x > prev->x)
-						prev->right = nullptr;
-					leftEl->left = left_;
-					leftEl->right = right_;
-					curEl = leftEl;
-				}
-				if (curEl->left != nullptr&&curEl->right == nullptr)
-				{
-					prev = prev_(curEl->x);
-					if (curEl->x < prev->x)
-						prev->left = curEl->left;
-					else prev->right = curEl->left;
-				}
+				if (curEl->x < prev->x)
+					prev->left = curEl->left;					
+				else prev->right = curEl->left;
+			}
+			else if (curEl->right != nullptr)
+			{
+				Node<T> * min = curEl->right;
+				while (min->left)
+					min = min->left;
+				T a = min->x;
+				deleteX(min->x);
+				curEl->x = a;
 			}
 		}
 		else return;

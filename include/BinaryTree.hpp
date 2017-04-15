@@ -185,26 +185,24 @@ public:
 	
 	Node<T> * prev_(Node<T> * & node, const T& x)
 	{
-		Node<T> * prev = nullptr;
+		Node<T> * cur = node;
 		if (check_search(x))
 		{
-			if (node->x != x)
+			if (x < cur->x)
 			{
-				if (x < node->x)
-				{
-					prev = node;
-					node = node->left;
-					prev_(node, x);
-				}
-				else if (x > node->x)
-				{
-					prev = node;
-					node = node->right;
-					prev_(node, x);
-				}
+				if (x != cur->left->x)
+					prev_(cur->left, x);
+				else return cur;
 			}
+			else if (x > cur->x)
+			{
+				if (x != cur->right->x)
+					prev_(cur->right, x);
+				else return cur;
+			}
+			else return nullptr;
 		}
-		return prev;
+		else return nullptr;
 	}
 	
 	void deleteX(const T& x)

@@ -63,13 +63,21 @@ public:
 
 	void insert(Node<T>* & node, const T& value)
 	{
-		if (node) 
+		if (node)
 		{
-			if (value < node->x) 
-				insert(node->left, value);
-			else if (value > node->x) 
-				insert(node->right, value);
-			else return;
+			try
+			{
+				if (value == node->x)
+					throw 2;
+				if (value < node->x)
+					insert(node->left, value);
+				else if (value > node->x)
+					insert(node->right, value);
+			}
+			catch (int i)
+			{
+				cout << "This element is saved in the tree\n";
+			}
 		}
 		else node = new Node<T>(value);
 	}
@@ -105,8 +113,15 @@ public:
 		ifstream fin;
 		unsigned int k;
 		fin.open(filename);
-		if (!fin.is_open())
+		try
+		{
+			if (!fin.is_open())
+				throw 4;
+		}
+		catch (int i)
+		{
 			cout << "The file isn't find" << endl;
+		}
 		else
 		{
 			deleteNode(root);
@@ -137,16 +152,30 @@ public:
 	{
 		ofstream fout;
 		fout.open(filename);
-		if (!fout.is_open())
+		try
+		{
+			if (!fout.is_open())
+				throw 4;
+		}
+		catch (int i)
+		{
 			cout << "The file isn't find" << endl;
+		}
 		else
 		{
 			unsigned int size_ = size(root);
-			if (size_ == 0)
-				return;
-			fout << size_ << "\t";
-			fOut(root, fout);
-			fout.close();
+			try
+			{
+				if (size_ == 0)
+					throw 1;
+				fout << size_ << "\t";
+				fOut(root, fout);
+				fout.close();
+			}
+			catch (int i)
+			{
+				cout << "The tree is empty\n";
+			}
 		}
 	}
 
@@ -207,21 +236,23 @@ public:
 	
 	void deleteX(const T& x)
 	{
-		Node<T> * curEl = search(x);
-		Node<T> * prev = prev_(x);
-		if (curEl != nullptr)
+		try
 		{
+			if (check_search(x) == false)
+				throw 3;
+			Node<T> * curEl = search(x);
+			Node<T> * prev = prev_(x);
 			if (curEl->left == nullptr && curEl->right == nullptr)
 			{
 				if (prev->left == curEl)
 					prev->left = nullptr;
-				if (prev->right == curEl)
+				if (prev->right == curEl)						
 					prev->right = nullptr;
 			}
 			else if (curEl->left != nullptr&&curEl->right == nullptr)
 			{
-				if (curEl->x < prev->x)
-					prev->left = curEl->left;					
+				if (curEl->x < prev->x)						
+					prev->left = curEl->left;
 				else prev->right = curEl->left;
 			}
 			else if (curEl->right != nullptr)
@@ -229,11 +260,14 @@ public:
 				Node<T> * min = curEl->right;
 				while (min->left)
 					min = min->left;
-				T a = min->x;
+				T a = min->x;					
 				deleteX(min->x);
 				curEl->x = a;
 			}
 		}
-		else return;
+		catch (int i)
+		{
+			cout << "There isn't this element in the tree\n";
+		}
 	}
 };

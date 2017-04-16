@@ -117,16 +117,7 @@ public:
 		{
 			if (!fin.is_open())
 				throw 4;
-		}
-		catch (int i)
-		{
-			cout << "The file isn't find" << endl;
-		}
-		else
-		{
 			deleteNode(root);
-			if (fin.eof()) return;
-			else
 			{
 				fin >> k;
 				T newEl;
@@ -137,6 +128,10 @@ public:
 				}
 			}
 			fin.close();
+		}
+		catch (int i)
+		{
+			cout << "The file isn't find" << endl;
 		}
 	}
 
@@ -156,13 +151,6 @@ public:
 		{
 			if (!fout.is_open())
 				throw 4;
-		}
-		catch (int i)
-		{
-			cout << "The file isn't find" << endl;
-		}
-		else
-		{
 			unsigned int size_ = size(root);
 			try
 			{
@@ -176,6 +164,10 @@ public:
 			{
 				cout << "The tree is empty\n";
 			}
+		}
+		catch (int i)
+		{
+			cout << "The file isn't find" << endl;
 		}
 	}
 

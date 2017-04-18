@@ -76,7 +76,7 @@ public:
 			}
 			catch (int i)
 			{
-				cout << "This element is saved in the tree\n";
+				cerr << "This element is saved in the tree\n";
 			}
 		}
 		else node = new Node<T>(value);
@@ -131,7 +131,7 @@ public:
 		}
 		catch (int i)
 		{
-			cout << "The file isn't find" << endl;
+			cerr << "The file isn't find" << endl;
 		}
 	}
 
@@ -162,7 +162,7 @@ public:
 			}
 			catch (int i)
 			{
-				cout << "The tree is empty\n";
+				cerr << "The tree is empty\n";
 			}
 		}
 		catch (int i)
@@ -259,7 +259,7 @@ public:
 		}
 		catch (int i)
 		{
-			cout << "There isn't this element in the tree\n";
+			cerr << "There isn't this element in the tree\n";
 		}
 	}
 };

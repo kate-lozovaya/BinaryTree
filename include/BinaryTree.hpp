@@ -65,19 +65,12 @@ public:
 	{
 		if (node)
 		{
-			try
-			{
-				if (value == node->x)
-					throw 2;
-				if (value < node->x)
-					insert(node->left, value);
-				else if (value > node->x)
-					insert(node->right, value);
-			}
-			catch (int i)
-			{
-				cerr << "This element is saved in the tree\n";
-			}
+		        if (value == node->x)
+		                throw logic_error("There is this element in the tree\n");
+			if (value < node->x)
+				insert(node->left, value);
+			else if (value > node->x)
+				insert(node->right, value);
 		}
 		else node = new Node<T>(value);
 	}
@@ -113,26 +106,19 @@ public:
 		ifstream fin;
 		unsigned int k;
 		fin.open(filename);
-		try
+		if (!fin.is_open())
+			throw logic_error("The file isn't find");
+		deleteNode(root);
 		{
-			if (!fin.is_open())
-				throw 4;
-			deleteNode(root);
+			fin >> k;
+			T newEl;
+			for (unsigned int i = 0; i < k; ++i)
 			{
-				fin >> k;
-				T newEl;
-				for (unsigned int i = 0; i < k; ++i)
-				{
-					fin >> newEl;
-					insert(newEl);
-				}
+				fin >> newEl;
+				insert(newEl);
 			}
-			fin.close();
 		}
-		catch (int i)
-		{
-			cerr << "The file isn't find" << endl;
-		}
+		fin.close();
 	}
 
 	unsigned int size(Node<T> * node)const

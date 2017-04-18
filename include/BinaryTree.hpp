@@ -240,12 +240,14 @@ public:
 					prev->left = nullptr;
 				if (prev->right == curEl)						
 					prev->right = nullptr;
+				deleteNode(curEl);
 			}
 			else if (curEl->left != nullptr&&curEl->right == nullptr)
 			{
 				if (curEl->x < prev->x)						
 					prev->left = curEl->left;
 				else prev->right = curEl->left;
+				deleteNode(curEl);
 			}
 			else if (curEl->right != nullptr)
 			{

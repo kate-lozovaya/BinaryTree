@@ -147,28 +147,14 @@ public:
 	{
 		ofstream fout;
 		fout.open(filename);
-		try
-		{
-			if (!fout.is_open())
-				throw 4;
-			unsigned int size_ = size(root);
-			try
-			{
-				if (size_ == 0)
-					throw 1;
-				fout << size_ << "\t";
-				fOut(root, fout);
-				fout.close();
-			}
-			catch (int i)
-			{
-				cerr << "The tree is empty\n";
-			}
-		}
-		catch (int i)
-		{
-			cout << "The file isn't find" << endl;
-		}
+		if (!fout.is_open())
+			throw logic_error("The file isn't find\n");
+		unsigned int size_ = size(root);
+		if (size_ == 0)
+			throw logic_error("The tree is empty\n");
+		fout << size_ << "\t";
+		fOut(root, fout);
+		fout.close();
 	}
 
 	void fOut(Node<T> * node, ostream&stream)const
@@ -228,40 +214,33 @@ public:
 	
 	void deleteX(const T& x)
 	{
-		try
+		if (check_search(x) == false)
+			throw logic_error("There isn't this element in the tree\n");
+		Node<T> * curEl = search(x);
+		Node<T> * prev = prev_(x);
+		if (curEl->left == nullptr && curEl->right == nullptr)
 		{
-			if (check_search(x) == false)
-				throw 3;
-			Node<T> * curEl = search(x);
-			Node<T> * prev = prev_(x);
-			if (curEl->left == nullptr && curEl->right == nullptr)
-			{
-				if (prev->left == curEl)
-					prev->left = nullptr;
-				if (prev->right == curEl)						
-					prev->right = nullptr;
-				deleteNode(curEl);
-			}
-			else if (curEl->left != nullptr&&curEl->right == nullptr)
-			{
-				if (curEl->x < prev->x)						
-					prev->left = curEl->left;
-				else prev->right = curEl->left;
-				deleteNode(curEl);
-			}
-			else if (curEl->right != nullptr)
-			{
-				Node<T> * min = curEl->right;
-				while (min->left)
-					min = min->left;
-				T a = min->x;					
-				deleteX(min->x);
-				curEl->x = a;
-			}
+			if (prev->left == curEl)
+				prev->left = nullptr;
+			if (prev->right == curEl)						
+				prev->right = nullptr;
+			curEl = nullptr;
 		}
-		catch (int i)
+		else if (curEl->left != nullptr&&curEl->right == nullptr)
 		{
-			cerr << "There isn't this element in the tree\n";
+			if (curEl->x < prev->x)						
+				prev->left = curEl->left;
+			else prev->right = curEl->left;
+			curEl = nullptr;
+		}
+		else if (curEl->right != nullptr)
+		{
+			Node<T> * min = curEl->right;
+			while (min->left)
+				min = min->left;
+			T a = min->x;					
+			deleteX(min->x);
+			curEl->x = a;
 		}
 	}
 };

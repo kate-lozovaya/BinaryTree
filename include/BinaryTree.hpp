@@ -1,6 +1,8 @@
 #include <iostream> 
 #include <string> 
 #include <fstream> 
+#include <stdexcept>
+
 using namespace std;
 
 template<typename T>

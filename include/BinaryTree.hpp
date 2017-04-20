@@ -1,6 +1,8 @@
 #include <iostream> 
 #include <string> 
 #include <fstream> 
+#include <stdexcept>
+
 using namespace std;
 
 template<typename T>
@@ -184,13 +186,13 @@ public:
 			if (x < cur->x)
 			{
 				if (x != cur->left->x)
-					prev_(cur->left, x);
+					return prev_(cur->left, x);
 				else return cur;
 			}
 			else if (x > cur->x)
 			{
 				if (x != cur->right->x)
-					prev_(cur->right, x);
+					return prev_(cur->right, x);
 				else return cur;
 			}
 			else return nullptr;
